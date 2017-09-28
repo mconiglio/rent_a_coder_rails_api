@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  username: postgres
+  password: password
+  database: rent_a_coder_rails_api_development
+
+test:
+  <<: *default
+  username: postgres
+  password: password
+  database: rent_a_coder_rails_api_test
+
+production:
+  <<: *default
+  username: postgres
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  database: rent_a_coder_rails_api_production
